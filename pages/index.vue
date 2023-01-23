@@ -60,15 +60,12 @@ export default {
     return {
       tableHeader: [
         { key: '', value: '', hide: this.$route.query.noimage },
-        { key: 'rank', value: 'Rank' },
-        { key: 'average', value: 'Avg. Rating' },
-        { key: 'rating', value: 'User Rating' },
-        { key: 'name', value: 'Name' },
-        { key: 'weight', value: 'Weight' },
-        { key: 'playingtime', value: 'Length' },
-        { key: 'bggbestplayers', value: 'Best #Player' },
-        { key: 'numplays', value: 'Plays' },
-        { key: 'mech', value: 'Mechanisms' }
+        { key: 'name', value: 'Név' },
+        { key: 'playingtime', value: 'Idő' },
+        { key: 'bggbestplayers', value: 'Legjobb ennyien' },
+        { key: 'average', value: 'Átl. Értékelés' },
+        { key: 'rank', value: 'Rangsor' },
+        { key: 'mech', value: 'Mechanizmusok' }
       ],
       userId: cookie.get('username')
     }
@@ -86,7 +83,7 @@ export default {
     } else if (this.$route.query.userid) {
       cookie.set('username', this.$route.query.userid)
     } else if (!cookie.get('username')) {
-      cookie.set('username', 'Za Warudo')
+      cookie.set('username', 'Joacoking')
     }
 
     if (this.$route.query.showexp) {

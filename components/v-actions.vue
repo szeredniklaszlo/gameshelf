@@ -9,13 +9,13 @@
           v-clipboard="getShareLink()"
           size="sm"
           variant="primary"
-          @click="$toast.success('Link copied to clipboard', { icon : 'fa-clipboard'})"
+          @click="$toast.success('Link kimásolva', { icon : 'fa-clipboard'})"
         >
           <i
             class="fa fa-share-alt"
             aria-hidden="true"
           />
-          Share This List
+          Lista másolása vágólapra
         </b-button>
       </b-col>
       <b-col sm="auto">
@@ -28,7 +28,7 @@
             class="fa fa-random"
             aria-hidden="true"
           />
-          Get Me A Game
+          Random játék választása
         </b-button>
       </b-col>
       <b-col sm="auto">
@@ -36,13 +36,13 @@
           v-clipboard="getList()"
           size="sm"
           variant="primary"
-          @click="$toast.success('List copied to clipboard', { icon : 'fa-clipboard'})"
+          @click="$toast.success('Lista kimásolva', { icon : 'fa-clipboard'})"
         >
           <i
             class="fa fa-copy"
             aria-hidden="true"
           />
-          Copy This List
+          Lista másolása vágólapra
         </b-button>
       </b-col>
       <b-col sm="auto">
@@ -56,14 +56,14 @@
               class="fa fa-th"
               aria-hidden="true"
             />
-            Toggle Grid View
+            Rács nézet
           </span>
           <span v-if="!views.listView">
             <i
               class="fa fa-list"
               aria-hidden="true"
             />
-            Toggle Table View
+            Lista nézet
           </span>
         </b-button>
       </b-col>
@@ -85,7 +85,7 @@ export default {
   data () {
     return {
       getShareLink: function () {
-        let link = `${window.origin}?userId=${cookie.get('username')}&`
+        let link = `${window.location.origin}${window.location.pathname}?userId=${cookie.get('username')}&`
         const { filters } = this.$store.state
         const queryParams = params.map(param => (filters[param] ? `${param}=${filters[param]}` : null)).filter(i => !!i).join('&')
         return encodeURI(`${link}${queryParams}`)
@@ -93,18 +93,19 @@ export default {
       getList: function () {
         let result = ''
         _.forEach(this.games, game => {
-          result += game.name + ' - ' + game.comment + '\n'
+          result += game.name + (game.comment != undefined ? ' - ' + game.comment : '') + '\n'
         })
         return result
       },
       getARandomGame: function () {
         let game = _.sample(filterItems(this.games, this.$store.state.filters))
-        this.$toast.success('Go play ' + game.name, {
+        this.$toast.success('Játssz ezzel: ' + game.name, {
           icon: 'fa-play',
           action: {
             text: 'Link',
             href: 'https://boardgamegeek.com/boardgame/' + game.id
-          }
+          },
+          duration: 5000
         })
       },
       views: this.$store.state.views

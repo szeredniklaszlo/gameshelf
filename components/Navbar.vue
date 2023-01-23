@@ -5,32 +5,17 @@
         to="/"
         exact
       >
-        Collection
-      </nuxt-link>
-    </b-nav-item>
-    <b-nav-item>
-      <nuxt-link to="/want-to-play">
-        Want To Play
+        Gyűjtemény
       </nuxt-link>
     </b-nav-item>
     <b-nav-item>
       <nuxt-link to="/wishlist">
-        Wishlist
-      </nuxt-link>
-    </b-nav-item>
-    <b-nav-item>
-      <nuxt-link to="/trade-sale">
-        Trade/Sale
-      </nuxt-link>
-    </b-nav-item>
-    <b-nav-item>
-      <nuxt-link to="/latest-100-plays">
-        Latest 100 Plays
+        Kívánságlista
       </nuxt-link>
     </b-nav-item>
     <b-nav-item>
       <nuxt-link to="/help">
-        Help
+        Beállítások
       </nuxt-link>
     </b-nav-item>
     <!-- <nuxt-link to="/about">About</nuxt-link> -->

@@ -42,7 +42,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -66,5 +66,9 @@ module.exports = {
       })
     ]
   },
-  plugins: ['~/plugins/vue-clipboards']
+  plugins: ['~/plugins/vue-clipboards'],
+  target: 'static',
+  router: {
+    base: '/tarsas/'
+  }
 }

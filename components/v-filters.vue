@@ -10,7 +10,7 @@
           variant="outline-primary"
           size="sm"
         >
-          Toggle Filters
+          Szűrők megjelenítése
         </b-btn>
       </b-col>
     </b-row>
@@ -20,14 +20,14 @@
     >
       <b-form-group
         label-cols-sm="2"
-        label="Players"
+        label="Játékosok száma"
       >
         <b-row>
           <b-col sm="auto">
             <b-form-input
               v-model="filters.bestnum"
               type="number"
-              placeholder="Best #"
+              placeholder="Legjobb ennyien"
               min="1"
               size="sm"
             />
@@ -36,7 +36,7 @@
             <b-form-input
               v-model="filters.recnum"
               type="number"
-              placeholder="Recommended #"
+              placeholder="Ajánlott ennyien"
               min="1"
               size="sm"
             />
@@ -45,7 +45,7 @@
             <b-form-input
               v-model="filters.supplayer"
               type="number"
-              placeholder="Supported #"
+              placeholder="Lehetséges ennyien"
               min="1"
               size="sm"
             />
@@ -54,14 +54,14 @@
       </b-form-group>
       <b-form-group
         label-cols-sm="2"
-        label="Play Time"
+        label="Idő"
       >
         <b-row>
           <b-col sm="auto">
             <b-form-input
               v-model="filters.mintime"
               type="number"
-              placeholder="Min Play Time"
+              placeholder="Minimum"
               min="0"
               step="10"
               size="sm"
@@ -71,61 +71,9 @@
             <b-form-input
               v-model="filters.maxtime"
               type="number"
-              placeholder="Max Play Time"
+              placeholder="Maximum"
               min="0"
               step="10"
-              size="sm"
-            />
-          </b-col>
-        </b-row>
-      </b-form-group>
-      <b-form-group
-        label-cols-sm="2"
-        label="Weight"
-      >
-        <b-row>
-          <b-col sm="auto">
-            <b-form-input
-              v-model="filters.minweight"
-              type="number"
-              placeholder="Min Weight"
-              min="1"
-              step="0.1"
-              size="sm"
-            />
-          </b-col>
-          <b-col sm="auto">
-            <b-form-input
-              v-model="filters.maxweight"
-              type="number"
-              placeholder="Max Weight"
-              min="1"
-              step="0.1"
-              size="sm"
-            />
-          </b-col>
-        </b-row>
-      </b-form-group>
-      <b-form-group
-        label-cols-sm="2"
-        label="Plays"
-      >
-        <b-row>
-          <b-col sm="auto">
-            <b-form-input
-              v-model="filters.playgreaterthan"
-              type="number"
-              placeholder="Greater Than"
-              min="0"
-              size="sm"
-            />
-          </b-col>
-          <b-col sm="auto">
-            <b-form-input
-              v-model="filters.playlessthan"
-              type="number"
-              placeholder="Fewer Than"
-              min="0"
               size="sm"
             />
           </b-col>
@@ -142,7 +90,7 @@
               class="fa fa-gear"
               aria-hidden="true"
             />
-            Filter By Mechanisms
+            Szűrés mechanizmusok által
           </b-button>
           <b-popover
             :target="'mech-filter'"
@@ -179,7 +127,7 @@
               variant="primary"
               @click="onClose"
             >
-              Close
+              Bezár
             </b-btn>
           </b-popover>
         </b-col>

@@ -38,42 +38,6 @@
               />
             </a>
           </td>
-          <td v-if="hasHeader('rank')">
-            {{ item.rank }}
-          </td>
-          <td v-if="hasHeader('average')">
-            <span
-              class="badge"
-              :class="['badge-' + getRatingColor(item.average, true)]"
-            >
-              {{ item.average | number }}
-            </span>
-          </td>
-          <td v-if="hasHeader('rating') && singleUser">
-            <span
-              v-if="item.users[userId].rating"
-              class="badge"
-              :class="['badge-' + getRatingColor(item.users[userId].rating)]"
-            >
-              {{ item.users[userId].rating }}
-            </span>
-          </td>
-          <td v-if="hasHeader('rating') && !singleUser">
-            <span
-              v-if="item.rating"
-              class="badge"
-              :class="['badge-' + getRatingColor(item.rating)]"
-            >
-              {{ item.rating | number }}
-            </span>
-            <i
-              v-if="item.rating"
-              v-b-popover.hover="getUserRatings(item.users)"
-              aria-hidden="true"
-              class="fa fa-users"
-              title="Individual Ratings"
-            />
-          </td>
           <td
             v-if="hasHeader('name')"
             class="name"
@@ -87,22 +51,8 @@
               title="Owners"
             />
           </td>
-          <td
-            v-if="hasHeader('date')"
-            class="date"
-          >
-            <a>{{ item.date }}</a>
-          </td>
-          <td v-if="hasHeader('weight')">
-            <span
-              class="badge"
-              :class="['badge-' + getWeightColor(item.weight)]"
-            >
-              {{ item.weight | number }}
-            </span>
-          </td>
           <td v-if="hasHeader('playingtime')">
-            {{ item.playingtime }} mins
+            {{ item.playingtime }} perc
           </td>
           <td
             v-if="hasHeader('bggbestplayers')"
@@ -110,24 +60,16 @@
           >
             {{ item.bggbestplayers }}
           </td>
-          <td
-            v-if="hasHeader('numplays') && singleUser"
-            class="num-plays"
-          >
-            {{ item.users[userId].numplays }}
+          <td v-if="hasHeader('average')">
+            <span
+              class="badge"
+              :class="['badge-' + getRatingColor(item.average, true)]"
+            >
+              {{ item.average | number }}
+            </span>
           </td>
-          <td
-            v-if="hasHeader('numplays') && !singleUser"
-            class="num-plays"
-          >
-            {{ item.numplays }}
-            <i
-              v-if="item.numplays"
-              v-b-popover.hover="getUserPlays(item.users)"
-              aria-hidden="true"
-              class="fa fa-users"
-              title="Individual Plays"
-            />
+          <td v-if="hasHeader('rank')">
+            {{ item.rank }}
           </td>
           <td
             v-if="hasHeader('wishlistpriority')"
