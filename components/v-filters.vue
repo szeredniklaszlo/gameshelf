@@ -215,7 +215,7 @@ export default {
       type: Number
     },
     showexp: {
-      default: !!cookie.get('showexp'),
+      default: cookie.get('showexp') == null ? true : cookie.get('showexp'),
       type: Boolean
     },
     showOwned: {

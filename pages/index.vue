@@ -62,6 +62,8 @@ export default {
         { key: '', value: '', hide: this.$route.query.noimage },
         { key: 'name', value: 'Név' },
         { key: 'playingtime', value: 'Idő' },
+        { key: 'minplayer', value: 'Min. játékos' },
+        { key: 'maxplayer', value: 'Max. játékos' },
         { key: 'bggbestplayers', value: 'Legjobb ennyien' },
         { key: 'average', value: 'Átl. Értékelés' },
         { key: 'rank', value: 'Rangsor' },
@@ -89,7 +91,7 @@ export default {
     if (this.$route.query.showexp) {
       cookie.set('showexp', true)
     } else if (cookie.get('showexp') === '') {
-      cookie.set('showexp', false)
+      cookie.set('showexp', true)
     }
 
     if (this.$route.query.disableLS) {

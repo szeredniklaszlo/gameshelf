@@ -55,6 +55,18 @@
             {{ item.playingtime }} perc
           </td>
           <td
+            v-if="hasHeader('minplayer')"
+            class="best-player"
+          >
+            {{ item.minplayer }}
+          </td>
+          <td
+            v-if="hasHeader('maxplayer')"
+            class="best-player"
+          >
+            {{ item.maxplayer }}
+          </td>
+          <td
             v-if="hasHeader('bggbestplayers')"
             class="best-player"
           >
